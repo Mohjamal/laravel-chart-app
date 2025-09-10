@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChartController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/', ChartController::class);
+Route::get('/', [DashboardController::class, 'chart']);

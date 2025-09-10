@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HospitalPerformanceIndicator;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
@@ -12,7 +13,8 @@ class ChartController extends Controller
     public function index()
     {
         //
-        return view('pages.index');
+        $hospitalPerformanceData =  HospitalPerformanceIndicator::all();
+        return response()->json($hospitalPerformanceData);
     }
 
     /**
