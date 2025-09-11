@@ -15,6 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css" />
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
 </head>
@@ -251,14 +253,80 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>ChartJS</h1>
+                            <h1>مؤشرات أداء المستشفى</h1>
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">ChartJS</li>
-                            </ol>
+                        <div class="col-sm-6 text-right">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#KPI-Edit-Modal">
+                                تعديل
+                            </button>
                         </div>
+
+                        <div class="modal fade" id="KPI-Edit-Modal">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">مؤشرات أداء المستشفى</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+
+                                    <!-- form start -->
+                                    <form id="KPI-edit-form">
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="reception-visitors-number">عدد زوار الاستقبال</label>
+                                                    <input type="number" class="form-control"
+                                                        id="reception-visitors-number"
+                                                        placeholder="أدخل عدد زوار الاستقبال">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="clinic-bookings-number">عدد حجوزات العيادات</label>
+                                                    <input type="number" class="form-control"
+                                                        id="clinic-bookings-number" placeholder="عدد حجوزات العيادات">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="clinic-attendees-number">عدد حضور العيادات</label>
+                                                    <input type="number" class="form-control"
+                                                        id="clinic-attendees-number" placeholder="عدد حضور العيادات">
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="form-group col-md-4">
+                                                    <label for="unscheduled-attendance-number">عدد الحضور بدون
+                                                        الموعد</label>
+                                                    <input type="number" class="form-control"
+                                                        id="unscheduled-attendance-number"
+                                                        placeholder="عدد الحضور بدون الموعد">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="surgery-bookings-number">عدد حجوزات العمليات</label>
+                                                    <input type="number" class="form-control"
+                                                        id="surgery-bookings-number" placeholder="عدد حجوزات العمليات">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                    <label for="actual-surgeries-number">عدد العمليات الفعلي</label>
+                                                    <input type="number" class="form-control"
+                                                        id="actual-surgeries-number" placeholder="عدد العمليات الفعلي">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">إغلاق</button>
+                                            <button type="submit" class="btn btn-primary" id="KPI-edit">تعديل</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
+
                     </div>
                 </div><!-- /.container-fluid -->
             </section>
@@ -310,6 +378,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- Toastr -->
+    <script src="../../plugins/toastr/toastr.min.js"></script>
     <!-- ChartJS -->
     <script src="{{asset('plugins/chart.js/Chart.min.js')}}"></script>
     <!-- AdminLTE App -->

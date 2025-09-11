@@ -35,9 +35,23 @@ $(document).ready(function () {
                     responsive: true,
                 },
             });
+
+            $("#KPI-edit-form #reception-visitors-number").val(data[0].value);
+            $("#KPI-edit-form #clinic-bookings-number").val(data[1].value);
+            $("#KPI-edit-form #clinic-attendees-number").val(data[2].value);
+            $("#KPI-edit-form #unscheduled-attendance-number").val(
+                data[3].value
+            );
+            $("#KPI-edit-form #surgery-bookings-number").val(data[4].value);
+            $("#KPI-edit-form #actual-surgeries-number").val(data[5].value);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error("Error fetching data:", textStatus, errorThrown);
         },
+    });
+
+    $("#KPI-edit").click(function () {
+        $("#KPI-Edit-Modal").modal("hide");
+        toastr.success(".لقد تم التعديل بنجاح");
     });
 });

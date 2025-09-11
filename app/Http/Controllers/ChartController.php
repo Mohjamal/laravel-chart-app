@@ -64,4 +64,10 @@ class ChartController extends Controller
     {
         //
     }
+
+    public function updateKPIs(Request $request)
+    {
+        // $data = $request->json()->all();
+        return response()->json(['message' => 'تم تحديث البيانات بنجاح']);
+    }
 }

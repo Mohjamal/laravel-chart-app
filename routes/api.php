@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('/chart', ChartController::class);
+// Route::resource('/chart', ChartController::class);
+Route::get('/chart', [ChartController::class, 'index']);
+
+Route::put('/chart', [ChartController::class, 'updateKPIs']);
